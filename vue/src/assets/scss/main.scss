@@ -1,0 +1,181 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  display: block;
+  position: relative;
+  background-color: $secondaryColor;
+  font-family: $font, Arial;
+  letter-spacing: 0.3px;
+}
+
+* {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: $primaryColor;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border 0.3s;
+  &:hover {
+    border-bottom: 1px solid white;
+    transition: border 0.3s;
+  }
+}
+
+#app {
+  font-family: $font, Arial; //, Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: grid;
+  position: relative;
+  text-align: center;
+  color: #2c3e50;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  grid-template-areas: "header" "main";
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: 1fr;
+
+  @include breakpoint("768") {
+    grid-template-areas: "header" "main";
+    grid-template-rows: 70px 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  @include breakpoint("1024") {
+    grid-template-areas: "header header" "main main";
+  }
+}
+
+.nav {
+  grid-area: header;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  z-index: 1;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.template {
+  display: grid;
+  height: 100%;
+
+  .content {
+    background-color: $secondaryColor;
+    width: 100%;
+    height: 100%;
+    grid-area: content;
+  }
+
+  &.page {
+    .content {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 40px 40px;
+      text-align: left;
+      @include breakpoint("1024") {
+        max-width: none;
+      }
+    }
+  }
+}
+
+.main-template {
+  grid-template-areas: "content content";
+  grid-area: main;
+}
+
+.sidebar-template {
+  grid-template-areas: "sidebar" "content";
+  grid-area: main;
+  grid-template-rows: min-content 1fr;
+  position: relative;
+  padding-bottom: 30px;
+
+  @include breakpoint("1024") {
+    grid-template-areas: "sidebar  content";
+    grid-template-rows: 1fr;
+    grid-template-columns: 350px 1fr;
+    padding-bottom: 0px;
+  }
+
+  @include breakpoint("1280") {
+    grid-template-columns: 500px 1fr;
+  }
+
+  @include breakpoint("1600") {
+    grid-template-columns: 600px 1fr;
+  }
+
+  .sidebar {
+    background: $primaryColor;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    grid-area: sidebar;
+    display: block;
+    position: relative;
+
+    @include breakpoint("1024") {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding-bottom: 60px;
+      top: auto;
+      left: 0;
+      width: 350px;
+    }
+
+    @include breakpoint("1280") {
+      width: 500px;
+    }
+
+    @include breakpoint("1600") {
+      width: 600px;
+    }
+  }
+}
+
+
+.notification-bar {
+  width: fit-content;
+  max-width: 300px;
+  margin: 0 auto;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.notification-success {
+  background-color: green;
+  color: white;
+}
+
+.notification-error {
+  background-color: red;
+  color: white;
+}
