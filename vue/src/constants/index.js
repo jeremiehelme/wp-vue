@@ -1,5 +1,5 @@
-const PREPROD_URL = "https://localhost:8888/wordpress/"
-const PROD_URL = "https://localhost:8888/wordpress/"
+const PREPROD_URL = "http://localhost:8888/wp-vue/wordpress/"
+const PROD_URL = "http://localhost:8888/wp-vue/wordpress/"
 
 const HOST_URL = PROD_URL
 
