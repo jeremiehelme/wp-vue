@@ -3,7 +3,7 @@
     <div class="sidebar">
       <div class="page-content">
         <h3>{{ this.page?.title?.rendered }}</h3>
-        <router-link to="/main" class="btn btn-primary">retour</router-link>
+        <router-link to="/" class="btn btn-primary">retour</router-link>
       </div>
     </div>
     <div class="content" v-html="contentRendered">
